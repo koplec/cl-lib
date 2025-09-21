@@ -1,5 +1,4 @@
 (in-package :kplb)
-
 (defun ensure-list (x)
   "If X is a list, return it; otherwise wrap X in a list."
   (if (listp x) x (list x)))
@@ -34,4 +33,3 @@
   (let ((rows (length lst))
 	(cols (length (first lst))))
     (make-array (list rows cols) :initial-contents lst)))
-

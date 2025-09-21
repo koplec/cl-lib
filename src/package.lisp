@@ -3,8 +3,9 @@
   (:use :cl)
   (:export
    :ensure-list
-   :hello
    :debug-hash-table
+   :line->integers
+   :list->2d-array
    ;;macros.lisp
    :with-gensyms :defun-typed :while
    ))

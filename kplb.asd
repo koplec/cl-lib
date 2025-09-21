@@ -7,8 +7,9 @@
   :depends-on (:alexandria)
   :serial t
   :components ((:file "src/package")
+	       (:file "src/macros")
 	       (:file "src/core")
-	       (:file "src/macros"))
+	       )
   )
 
 (asdf:defsystem "kplb/tests"
@@ -17,6 +18,5 @@
   :components ((:file "tests/package")
 	       (:file "tests/core-test"))
   :perform (asdf:test-op (o c)
-		    (uiop:symbol-call :fiveam :run!
-				      (uiop:find-symbol* "SUITE" :kplb/tests))))
+		    (uiop:symbol-call :fiveam :run! :kplb)))
 						    
