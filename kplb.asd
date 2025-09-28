@@ -9,6 +9,7 @@
   :components ((:file "src/package")
 	       (:file "src/macros")
 	       (:file "src/core")
+	       (:file "src/test")
 	       )
   )
 

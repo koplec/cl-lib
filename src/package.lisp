@@ -2,12 +2,18 @@
   (:nicknames :kp)
   (:use :cl)
   (:export
+
+   ;;core.lisp
+   
    :ensure-list
-   :debug-hash-table
+   :print-hash-table
    :line->integers
    :list->2d-array
    ;;macros.lisp
    :with-gensyms :defun-typed :while
    ))
 
-(in-package :kplb)
+(defpackage :kplb.test
+  (:use :cl) ;;common-lisp標準パッケージ利用
+  (:export :deftest :ok :is :run-tests ))
+
