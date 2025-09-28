@@ -34,3 +34,17 @@
   (let ((rows (length lst))
 	(cols (length (first lst))))
     (make-array (list rows cols) :initial-contents lst)))
+
+;;memorized
+(defun memorize (fn &key (test #'equal) table)
+  "最初の関数呼び出しをキャッシュしておく"
+  (let ((cache (or table (make-hash-table :test test))))
+    (labels ((self (&rest args)
+	       (multiple-value-bind (value ok?) (gethash args cache)
+		 (if ok?
+		     (values-list value)
+		     (let ((res (multiple-value-list (apply fn args))))
+		       (setf (gethash args cache) res)
+		       (values-list res))))))
+      (values #'self cache))))
+
