@@ -48,3 +48,10 @@
 		       (values-list res))))))
       (values #'self cache))))
 
+(defmacro memorizef (name &key (test ''equal) table)
+  "関数NAMEの本体をメモ化版に置き換え、キャッシュがきくようにする"
+  (let  ((fn-sym (gensym "FN-"))
+	 (cache-sym (gensym "CACHE-")))
+    `(multiple-value-bind (,fn-sym ,cache-sym)
+	 (memorize (symbol-function ',name) :test ,test :table ,table)
+       (setf (symbol-function ',name) ,fn-sym))))

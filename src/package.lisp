@@ -9,6 +9,9 @@
    :print-hash-table
    :line->integers
    :list->2d-array
+   :memorize
+   :memorizef
+
    ;;macros.lisp
    :with-gensyms :defun-typed :while
    ))
